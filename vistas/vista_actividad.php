@@ -20,6 +20,7 @@
     <title></title>
   </head>
   <body>
+
     <nav class="navbar navbar-inverse">
      <div class="container">
        <div class="navbar-header">
@@ -31,6 +32,7 @@
          <li><a href="#">Page 2</a></li> -->
        </ul>
        <ul class="nav navbar-nav navbar-right">
+         <li><a href="../vistas/vista_no_finalizado.php"><span class=""></span> Seguimiento</a></li>
          <li><a href="../controller/control_logout.php"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
          <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
        </ul>
@@ -78,9 +80,34 @@
                           </div>
 
                           <div class="form-group">
+                              <span class="col-md-1 col-md-offset-2 text-center">Subarea:</span>
+                              <div class="col-md-4">
+                                <select name="select_subarea" class="form-control form-control-lg" id="select_subarea" onchange="actividades_secundarias(this);">
+                                  <option selected>Subarea:</option>
+                                  <?php
+                                    include "../controller/control_subareas.php";
+                                  ?>
+                                </select>
+                              </div>
+                              <div class="col-md-4">
+                                <select name="select_actividades_secundarias" class="form-control form-control-lg" id="select_actividades_secundarias" >
+                                  <?php
+                                    include "../controller/control_actividades_secundarias.php";
+                                  ?>
+                                </select>
+                              </div>
+                          </div>
+
+                          <div class="form-group">
                               <span class="col-md-1 col-md-offset-2 text-center">Descripción</span>
                               <div class="col-md-8">
-                                  <textarea class="form-control" id="txt_descripcion" required name="txt_descripcion" placeholder="Ingrese la descripcion de la actividad." rows="5"></textarea>
+                                  <textarea class="form-control" id="txt_descripcion" required name="txt_descripcion" placeholder="Ingrese la descripcion de la actividad." rows="4"></textarea>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <span class="col-md-1 col-md-offset-2 text-center">Objetivo</span>
+                              <div class="col-md-8">
+                                  <textarea class="form-control" id="txt_objetivo" required name="txt_objetivo" placeholder="Ingrese el objetivo de la actividad." rows="2"></textarea>
                               </div>
                           </div>
                           <div class="form-group">

@@ -1,5 +1,3 @@
-
-
 function eliminarActividad(){
   var tabla = table.row(".selected").data();
 
@@ -81,6 +79,8 @@ function mostrarNotaActividad(){
           $("#txt_nombre_archivo").val(response.archivo);
           $("#dateActividad").val(response.fechaActividad);
           $("#txt_descripcion").val(response.descripcion_actividad);
+          $("#txt_subarea").val(response.subarea);
+          $("#txt_objetivo").val(response.objetivo);
           // console.log(response.archivo);
           // console.log(response.fechaActividad);
       }
@@ -100,13 +100,16 @@ function detalles(id_actividad){
     url : "../controller/control_detalles.php",
     type: "POST",
     success:  function (response) {
+      // alert(response.general.subarea);
         $('#myModalDetalles').modal('toggle');
         $("#txt_titulo_detalles").val(response.general.titulo_actividad_detalles);
         $("#txt_nombre_archivo_detalles").val(response.general.archivo_detalles);
         $("#dateActividad_detalles").val(response.general.fechaActividad_detalles);
         $("#txt_descripcion_detalles").val(response.general.descripcion_actividad_detalles);
+        $("#txt_subarea_detalles").val(response.general.subarea);
+        $("#txt_objetivo_detalles").val(response.general.objetivo);
 
-        for (var i = 0; i < response.cantidad_notas; i++) {
+        for (var i = 0; i <= response.cantidad_notas; i++) {
           if ($("#fecha_notas_"+i) != null) {
               $("#fecha_notas_"+i).remove();
           }
@@ -124,6 +127,9 @@ function detalles(id_actividad){
           // console.log(response.notas[i]["fecha_seguimiento"]);
           // console.log(response.notas[i]["nota_actividad"]);
         }
+    },
+    error:function(){
+      alert("Error");
     }
   });
 }

@@ -15,7 +15,7 @@ $result_seguimiento = mysqli_query($conn,$query_seguimiento);
       <td>" . $row["titulo_actividad"] . "</td>
       <td>" . $row["descripcion_actividad"] . "</td>
       <td>" . $row["fechaRegistroActividad"] . "</td>" .
-      '<td><button type="submit" class="btn btn-warning" name="btn-datos" id="btn-datos" onclick="detalles(' . $id_actividad . ')">Detalles</button></td>
+      '<td><button type="button" class="btn btn-warning" name="btn-datos" id="btn-datos" onclick="detalles(' . $id_actividad . ');">Detalles</button></td>
     </tr>';
   }
 

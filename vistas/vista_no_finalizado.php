@@ -82,12 +82,28 @@
                                     <input id="dateActividad" name="date" disabled width="276" />
                                   </div>
                                 </div>
+
+                                <div class="form-group">
+                                  <span class="col-md-1 col-md-offset-2 text-center">Subarea:</span>
+                                  <div class="col-md-8">
+                                    <input id="txt_subarea" name=""  disabled type="text" class="form-control">
+                                  </div>
+                                </div>
+
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-2 text-center">Descripcion:</span>
                                     <div class="col-md-8">
                                         <textarea class="form-control" id="txt_descripcion" disabled name="txt_descripcion" placeholder="" rows="3"></textarea>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-2 text-center">Objetivo:</span>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control" id="txt_objetivo" disabled name="txt_objetivo" placeholder="" rows="2"></textarea>
+                                    </div>
+                                </div>
+
                                 <legend class="text-center header">Nota</legend>
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-2 text-center">Notas:</span>
@@ -142,10 +158,24 @@
                                     <input id="dateActividad_detalles" name="date_detalles" disabled width="276" />
                                   </div>
                                 </div>
+
+                                <div class="form-group">
+                                  <span class="col-md-1 col-md-offset-2 text-center">Subarea:</span>
+                                  <div class="col-md-8">
+                                    <input id="txt_subarea_detalles" name=""  disabled type="text" class="form-control">
+                                  </div>
+                                </div>
+
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-2 text-center">Descripcion:</span>
                                     <div class="col-md-8">
                                         <textarea class="form-control" id="txt_descripcion_detalles" disabled name="txt_descripcion_detalles" placeholder="" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-2 text-center">Objetivo:</span>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control" id="txt_objetivo_detalles" disabled name="txt_objetivo_detalles" placeholder="" rows="2"></textarea>
                                     </div>
                                 </div>
                                 <legend class="text-center header">Notas</legend>

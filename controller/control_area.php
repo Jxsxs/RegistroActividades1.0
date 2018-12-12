@@ -5,5 +5,4 @@ $result = $conn->query($query_areas);
 while($row = $result->fetch_assoc()) {
   echo "<option value='". $row["id_area"] . "'>". $row["nombre_area"] ."</option>";
 }
-$conn->close();
 ?>
