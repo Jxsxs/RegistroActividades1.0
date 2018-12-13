@@ -85,8 +85,11 @@
 
                                 <div class="form-group">
                                   <span class="col-md-1 col-md-offset-2 text-center">Subarea:</span>
-                                  <div class="col-md-8">
+                                  <div class="col-md-4">
                                     <input id="txt_subarea" name=""  disabled type="text" class="form-control">
+                                  </div>
+                                  <div class="col-md-4">
+                                    <input id="txt_actividades_secundarias" name=""  disabled type="text" class="form-control">
                                   </div>
                                 </div>
 
@@ -161,8 +164,11 @@
 
                                 <div class="form-group">
                                   <span class="col-md-1 col-md-offset-2 text-center">Subarea:</span>
-                                  <div class="col-md-8">
+                                  <div class="col-md-4">
                                     <input id="txt_subarea_detalles" name=""  disabled type="text" class="form-control">
+                                  </div>
+                                  <div class="col-md-4">
+                                    <input id="txt_secundarias_detalles" name=""  disabled type="text" class="form-control">
                                   </div>
                                 </div>
 

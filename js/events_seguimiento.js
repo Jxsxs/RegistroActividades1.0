@@ -81,6 +81,7 @@ function mostrarNotaActividad(){
           $("#txt_descripcion").val(response.descripcion_actividad);
           $("#txt_subarea").val(response.subarea);
           $("#txt_objetivo").val(response.objetivo);
+          $("#txt_actividades_secundarias").val(response.titulo_actividad_secundaria);
           // console.log(response.archivo);
           // console.log(response.fechaActividad);
       }
@@ -108,6 +109,7 @@ function detalles(id_actividad){
         $("#txt_descripcion_detalles").val(response.general.descripcion_actividad_detalles);
         $("#txt_subarea_detalles").val(response.general.subarea);
         $("#txt_objetivo_detalles").val(response.general.objetivo);
+        $("#txt_secundarias_detalles").val(response.general.titulo_actividad_secundaria);
 
         for (var i = 0; i <= response.cantidad_notas; i++) {
           if ($("#fecha_notas_"+i) != null) {

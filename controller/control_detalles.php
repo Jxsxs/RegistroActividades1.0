@@ -5,8 +5,8 @@ header("Content-Type: application/json; charset=UTF-8");
 $id_actividad = $_POST["id_actividad"];
 // echo "id: " . $id_actividad;
 
-$query_detalles = "select a.titulo_actividad, a.descripcion_actividad,a.objetivo_actividad, a.archivo, a.fechaActividad, sub.subarea from actividades as a join
-subareas as sub on a.id_subarea = sub.id_subarea where a.id_actividad = " . $id_actividad;
+$query_detalles = "select a.titulo_actividad, a.descripcion_actividad,a.objetivo_actividad, a.archivo, a.fechaActividad, sub.subarea, sec.titulo from actividades as a join
+subareas as sub on a.id_subarea = sub.id_subarea join actividades_secundarias as sec on sub.id_subarea = sec.id_subarea where a.id_actividad = " . $id_actividad;
 $result_detalles = mysqli_query($conn, $query_detalles);
 
 $query_detalles_notas = "select s.fecha_seguimiento, s.nota_actividad from actividades as a join
@@ -20,7 +20,8 @@ while ($row = mysqli_fetch_assoc($result_detalles)) {
     "archivo_detalles" => $row["archivo"],
     "fechaActividad_detalles" => $row["fechaActividad"],
     "subarea" => $row["subarea"],
-    "objetivo" => $row["objetivo_actividad"]
+    "objetivo" => $row["objetivo_actividad"],
+    "titulo_actividad_secundaria" => $row["titulo"]
   );
 }
 

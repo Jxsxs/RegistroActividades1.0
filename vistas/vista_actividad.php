@@ -91,9 +91,6 @@
                               </div>
                               <div class="col-md-4">
                                 <select name="select_actividades_secundarias" class="form-control form-control-lg" id="select_actividades_secundarias" >
-                                  <?php
-                                    include "../controller/control_actividades_secundarias.php";
-                                  ?>
                                 </select>
                               </div>
                           </div>
