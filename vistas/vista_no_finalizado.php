@@ -12,7 +12,7 @@
 
     <title></title>
   </head>
-  <body>
+  <body onload="noAtras()">
     <nav class="navbar navbar-inverse">
      <div class="container">
        <div class="navbar-header">

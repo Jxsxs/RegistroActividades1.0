@@ -68,5 +68,4 @@ function actividades_secundarias(id_subarea){
   }else{
       $("#select_actividades_secundarias").empty();
   }
-
 }
