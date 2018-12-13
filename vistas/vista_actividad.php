@@ -32,7 +32,9 @@
          <li><a href="#">Page 2</a></li> -->
        </ul>
        <ul class="nav navbar-nav navbar-right">
+         <li id="control_usuario"></li>
          <li><a href="../vistas/vista_no_finalizado.php"><span class=""></span> Seguimiento</a></li>
+         <li><a href="vista_historico_actividades.php"><span class=""></span> Historico Actividades</a></li>
          <li><a href="../controller/control_logout.php"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
          <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
        </ul>

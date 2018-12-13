@@ -24,12 +24,15 @@
          <li><a href="#">Page 2</a></li> -->
        </ul>
        <ul class="nav navbar-nav navbar-right">
+          <li><a href="vista_actividad.php"><span class=""></span> Nueva Actividad</a></li>
+          <li><a href="vista_historico_actividades.php"><span class=""></span> Historico Actividades</a></li>
          <li><a href="../controller/control_logout.php"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
          <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
        </ul>
      </div>
     </nav>
     <div class="container">
+      <h2 style="text-align:center; color:#36A0FF;"> Seguimiento  </h2>
       <table class="table table-striped" id="tabla">
         <thead>
           <tr>
@@ -46,7 +49,6 @@
       <div class="form-group" style="align-items:right">
         <button type="submit" class="btn btn-primary right" name="btn-editar" id="btn-editar" onclick="mostrarNotaActividad()">Agregar Nota</button>
         <button type="submit" class="btn btn-primary right" name="btn-finalizar" id="btn-finalizar" onclick="finalizarActividad()">Finalizar Actividad</button>
-        <button type="submit" class="btn btn-primary right" name="btn-nueva" id="btn-nueva" onclick="nuevaActividad()">Nueva Actividad</button>
         <button type="submit" class="btn btn-danger right" name="btn-eliminar" id="btn-eliminar" onclick="eliminarActividad()">Eliminar Actividad</button>
       </div>
 

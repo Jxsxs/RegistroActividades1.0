@@ -102,6 +102,7 @@ function detalles(id_actividad){
     type: "POST",
     success:  function (response) {
       // alert(response.general.subarea);
+      if (response.general != null) {
         $('#myModalDetalles').modal('toggle');
         $("#txt_titulo_detalles").val(response.general.titulo_actividad_detalles);
         $("#txt_nombre_archivo_detalles").val(response.general.archivo_detalles);
@@ -111,24 +112,25 @@ function detalles(id_actividad){
         $("#txt_objetivo_detalles").val(response.general.objetivo);
         $("#txt_secundarias_detalles").val(response.general.titulo_actividad_secundaria);
 
-        for (var i = 0; i <= response.cantidad_notas; i++) {
-          if ($("#fecha_notas_"+i) != null) {
-              $("#fecha_notas_"+i).remove();
-          }
-          if ($("#notas_"+i) != null) {
-              $("#notas_"+i).remove();
-          }
+      }
+      for (var i = 0; i <= response.cantidad_notas; i++) {
+        if ($("#fecha_notas_"+i) != null) {
+            $("#fecha_notas_"+i).remove();
         }
-        for (var i = 0; i < response.cantidad_notas; i++) {
-          $("#detalles").append ('<div class="form-group" id="fecha_notas_'+ i +'"><span class="col-md-1 col-md-offset-2 text-center">Fecha:</span><div class="col-md-8">'+
-                                        '<input  name="date_detalles" disabled width="276" value="'+ response.notas[i]["fecha_seguimiento"] +'"/>' +
-                                      '</div></div>');
-          $("#detalles").append ('<div class="form-group" id="notas_'+ i +'"><span class="col-md-1 col-md-offset-2 text-center">Notas:</span><div class="col-md-8">'+
-                                        '<textarea class="form-control"  disabled name="txt_notas" placeholder="Ingrese la Nota." rows="2">'+ response.notas[i]["nota_actividad"] +'</textarea>'+
-                                      '</div></div>');
-          // console.log(response.notas[i]["fecha_seguimiento"]);
-          // console.log(response.notas[i]["nota_actividad"]);
+        if ($("#notas_"+i) != null) {
+            $("#notas_"+i).remove();
         }
+      }
+      for (var i = 0; i < response.cantidad_notas; i++) {
+        $("#detalles").append ('<div class="form-group" id="fecha_notas_'+ i +'"><span class="col-md-1 col-md-offset-2 text-center">Fecha:</span><div class="col-md-8">'+
+                                      '<input  name="date_detalles" disabled width="276" value="'+ response.notas[i]["fecha_seguimiento"] +'"/>' +
+                                    '</div></div>');
+        $("#detalles").append ('<div class="form-group" id="notas_'+ i +'"><span class="col-md-1 col-md-offset-2 text-center">Notas:</span><div class="col-md-8">'+
+                                      '<textarea class="form-control"  disabled name="txt_notas" placeholder="Ingrese la Nota." rows="2">'+ response.notas[i]["nota_actividad"] +'</textarea>'+
+                                    '</div></div>');
+        // console.log(response.notas[i]["fecha_seguimiento"]);
+        // console.log(response.notas[i]["nota_actividad"]);
+      }
     },
     error:function(){
       alert("Error");

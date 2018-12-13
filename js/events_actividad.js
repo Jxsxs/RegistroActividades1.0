@@ -1,3 +1,23 @@
+$(window).on("load",function(){
+  var dato = {
+    "mensaje":"mensaje"
+  }
+
+  $.ajax({
+    data:dato,
+    url : "../controller/control_usuario.php",
+    type: "POST",
+    success:  function (response) {
+      if (response == 1) {
+        $("#control_usuario").append('<a href="../vistas/vista_nuevo_usuario.php"><span class=""></span> Crear Usuario</a>')
+      }
+    },
+    error:function(){
+      alert("Error");
+    }
+  });
+});
+
 function enviaDatos(){
 
   // ====Valores almacenados en variables obtenidos de los elementos del DOM===

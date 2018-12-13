@@ -22,7 +22,9 @@ if (isset($_POST["btn_login"])) {
       $_SESSION["ingreso"] = 1;
       if ($row["registrado"] == 1) {
         if (mysqli_num_rows($result_seguimiento) > 0) {
+
           header("location: ../vistas/vista_no_finalizado.php");
+
 
         }else{
           header("location: ../vistas/vista_actividad.php");

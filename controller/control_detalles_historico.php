@@ -14,29 +14,32 @@ seguimiento as s on a.id_actividad=s.id_actividad where a.id_actividad=" . $id_a
 $result_detalles_notas = mysqli_query($conn, $query_detalles_notas);
 
 $detalles = null;
+
 if (mysqli_num_rows($result_detalles) > 0) {
   while ($row = mysqli_fetch_assoc($result_detalles)) {
     $detalles = array(
-      "titulo_actividad_detalles" => $row["titulo_actividad"],
-      "descripcion_actividad_detalles" => $row["descripcion_actividad"],
-      "archivo_detalles" => $row["archivo"],
-      "fechaActividad_detalles" => $row["fechaActividad"],
-      "subarea" => $row["subarea"],
-      "objetivo" => $row["objetivo_actividad"],
-      "titulo_actividad_secundaria" => $row["titulo"]
+      "titulo_actividad_detalles_historico" => $row["titulo_actividad"],
+      "descripcion_actividad_detalles_historico" => $row["descripcion_actividad"],
+      "archivo_detalles_historico" => $row["archivo"],
+      "fechaActividad_detalles_historico" => $row["fechaActividad"],
+      "subarea_historico" => $row["subarea"],
+      "objetivo_historico" => $row["objetivo_actividad"],
+      "titulo_actividad_secundaria_historico" => $row["titulo"]
     );
   }
 }
+
+
 $detalles_notas = null;
+
 $cantidad_notas = mysqli_num_rows($result_detalles_notas);
 if ($cantidad_notas > 0) {
   while ($row = mysqli_fetch_assoc($result_detalles_notas)) {
     $detalles_notas[] = $row;
   }
 }
-
 // echo $cantidad_notas;
-// echo $detalles;
+// echo $detalles_notas;
 echo json_encode(Array("general" => $detalles, "notas" => $detalles_notas, "cantidad_notas" => $cantidad_notas));
 
  ?>
