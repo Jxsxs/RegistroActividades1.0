@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-
     <link href="../css/seguimiento.css" media="screen" rel="StyleSheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
@@ -111,6 +110,13 @@
 
                                 <legend class="text-center header">Nota</legend>
                                 <div class="form-group">
+                                  <span class="col-md-1 col-md-offset-2 text-center">Archivo:</span>
+                                  <div class="col-md-8">
+                                    <input type="file" name="file" id="archivo_notas" accept=".jpg,.png,.docx,.xslx,.pptx,.pdf">
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
                                     <span class="col-md-1 col-md-offset-2 text-center">Notas:</span>
                                     <div class="col-md-8">
                                         <textarea class="form-control" id="txt_notas" required name="txt_notas" placeholder="Ingrese la Nota." rows="7"></textarea>
@@ -204,6 +210,7 @@
 
       <!-- ==================================FIN MODAL DETALLES======================================== -->
   </body>
+
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>

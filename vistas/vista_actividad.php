@@ -47,7 +47,7 @@
               <div class="well well-sm">
                   <form class="form-horizontal" method="post">
                       <fieldset>
-                        <!-- <form role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data"> -->
+
                           <legend class="text-center header">Actividad</legend>
                           <div class="form-group">
                               <span class="col-md-1 col-md-offset-2 text-center">Titulo:</span>
@@ -55,17 +55,14 @@
                                   <input id="txt_titulo" name="txt_titulo" required type="text" placeholder="Titulo de Actividad" class="form-control">
                               </div>
                           </div>
-                        <!-- </form> -->
+
                           <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center">Archivo:</span>
                             <div class="col-md-8">
-                              <!-- <label for="ejemplo_archivo_1">Archivo</label> -->
-                              <!-- <form role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data"> -->
-                                <input type="file" name="file" id="archivo" accept=".jpg,.png,.docx,.xslx,.pptx,.pdf">
-                              <!-- </form> -->
+                              <input type="file" name="file" id="archivo" accept=".jpg,.png,.docx,.xslx,.pptx,.pdf">
                             </div>
                           </div>
-                          <!-- <form role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data"> -->
+
                           <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center">Fecha actividad:</span>
                             <div class="col-md-8">

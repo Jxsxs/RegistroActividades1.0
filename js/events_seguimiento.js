@@ -89,6 +89,7 @@ function mostrarNotaActividad(){
 
   }
 }
+var notas = 0;
 function detalles(id_actividad){
   // alert(id_actividad);
   var id = id_actividad;
@@ -113,23 +114,25 @@ function detalles(id_actividad){
         $("#txt_secundarias_detalles").val(response.general.titulo_actividad_secundaria);
 
       }
-      for (var i = 0; i <= response.cantidad_notas; i++) {
-        if ($("#fecha_notas_"+i) != null) {
-            $("#fecha_notas_"+i).remove();
-        }
-        if ($("#notas_"+i) != null) {
-            $("#notas_"+i).remove();
-        }
+      for (var i = 0; i <= notas; i++) {
+        $("#fecha_notas"+i).remove();
+        $("#notas"+i).remove();
       }
       for (var i = 0; i < response.cantidad_notas; i++) {
-        $("#detalles").append ('<div class="form-group" id="fecha_notas_'+ i +'"><span class="col-md-1 col-md-offset-2 text-center">Fecha:</span><div class="col-md-8">'+
-                                      '<input  name="date_detalles" disabled width="276" value="'+ response.notas[i]["fecha_seguimiento"] +'"/>' +
-                                    '</div></div>');
-        $("#detalles").append ('<div class="form-group" id="notas_'+ i +'"><span class="col-md-1 col-md-offset-2 text-center">Notas:</span><div class="col-md-8">'+
+        $("#detalles").append ('<div class="form-group" id="fecha_notas'+ i +'"><span class="col-md-1 col-md-offset-2 text-center">Fecha:</span>'+
+                                    '<div class="col-md-2">'+
+                                      '<input type="text" class="form-control" name="date_detalles" disabled width="272" value="'+ response.notas[i]["fecha_seguimiento"] +'"/>' +
+                                    '</div>'+
+                                    '<span class="col-md-1 col-md-2 text-center">Archivo:</span>'+
+                                    '<div class="col-md-5">'+
+                                      '<input type="text" class="form-control" name="date_detalles" disabled width="272" value="'+ response.notas[i]["archivo_nota"] +'"/>' +
+                                    '</div>'+
+                                '</div>');
+        $("#detalles").append ('<div class="form-group" id="notas'+ i +'"><span class="col-md-1 col-md-offset-2 text-center">Notas:</span><div class="col-md-8">'+
                                       '<textarea class="form-control"  disabled name="txt_notas" placeholder="Ingrese la Nota." rows="2">'+ response.notas[i]["nota_actividad"] +'</textarea>'+
+                                      '<hr style="border:3; width:100%;">'+
                                     '</div></div>');
-        // console.log(response.notas[i]["fecha_seguimiento"]);
-        // console.log(response.notas[i]["nota_actividad"]);
+        notas += 1;
       }
     },
     error:function(){
@@ -141,25 +144,38 @@ function detalles(id_actividad){
 function agregarNota(){
   var tabla = table.row(".selected").data();
   var nota = $("#txt_notas").val();
-  // alert(nota)
+  var file_data = document.getElementById('archivo_notas');
+  var archivo_notas = file_data.files[0];
+  var titulo_actividad = tabla[0];
+
+  var form_data = new FormData();
+
   if (nota == "") {
     alert("ingrese la nota");
   }else{
     if (tabla == null) {
       alert("Seleccione una Actividad");
     }else{
-      var dato = {
-        "titulo_actividad":tabla[0],
-        "nota":nota
-      }
+      form_data.append("titulo_actividad", titulo_actividad);
+      form_data.append("nota", nota);
+      form_data.append("archivo_notas", archivo_notas);
+      // var dato = {
+      //   "titulo_actividad":tabla[0],
+      //   "nota":nota
+      // }
       $.ajax({
-        data:dato,
+        data:form_data,
         url : "../controller/control_agregar_nota.php",
         type: "POST",
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
         success:  function (response) {
             alert(response);
             $('#myModal').modal('toggle');
             $("#txt_notas").val("");
+            $("#archivo_notas").val(null);
         }
       });
     }

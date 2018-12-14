@@ -9,7 +9,7 @@ $query_detalles = "select a.titulo_actividad, a.descripcion_actividad,a.objetivo
 subareas as sub on a.id_subarea = sub.id_subarea join actividades_secundarias as sec on a.id_actividad_secundaria = sec.id_actividad_secundaria where a.id_actividad = " . $id_actividad;
 $result_detalles = mysqli_query($conn, $query_detalles);
 
-$query_detalles_notas = "select s.fecha_seguimiento, s.nota_actividad from actividades as a join
+$query_detalles_notas = "select s.fecha_seguimiento, s.nota_actividad, s.archivo_nota from actividades as a join
 seguimiento as s on a.id_actividad=s.id_actividad where a.id_actividad=" . $id_actividad;
 $result_detalles_notas = mysqli_query($conn, $query_detalles_notas);
 

@@ -31,7 +31,7 @@ if (isset($_FILES["archivo"]["name"])) {
 
 // echo $nombreArchivo . ' - ' .$tamañoTotal . "Mb";
 // ==================================================
-$query_actividad = "insert into actividades (id_usuario, id_subarea, id_actividad_secundaria, titulo_actividad, descripcion_actividad,objetivo_actividad, archivo, fechaActividad, finalizado) values ('".$id_usuario."', '".$id_subarea."', '".$id_actividad_secundaria."', '".$titulo."', '".$descripcion."', '".$objetivo."', '".$nombreArchivo."', '".$fecha_correcta_actividad."', '".$finalizado."')";
+$query_actividad = "insert into actividades (id_usuario, id_subarea, id_actividad_secundaria, titulo_actividad, descripcion_actividad,objetivo_actividad, archivo, fechaActividad, finalizado) values ('".$id_usuario."', '".$id_subarea."', '".$id_actividad_secundaria."', '".$titulo."', '".$descripcion."', '".$objetivo."', '". $id_usuario. "_" . $fecha_correcta_actividad . "_" . $nombreArchivo."', '".$fecha_correcta_actividad."', '".$finalizado."')";
 $query_busca_usuario = "select usuario from usuario where id_usuario = " . $id_usuario;
 $result_busca_usuario = mysqli_query($conn, $query_busca_usuario);
 
@@ -48,9 +48,9 @@ if (mysqli_num_rows($result_busca_usuario) > 0) {
       echo "Error al agregar " . $conn->error;
     }
   }else{
-    if ($ext == "jpg" || $ext == "png" || $ext == "docx" || $ext == "xslx" || $ext == "pdf") {
+    if ($ext == "jpg" || $ext == "png" || $ext == "docx" || $ext == "xslx" || $ext == "pdf" || $ext == "PDF") {
       if ($conn->query($query_actividad) === TRUE) {
-          $add = "../archivos_locales/" . $nombreArchivo;
+          $add = "../archivos_locales/" . $id_usuario . "_" . $fecha_correcta_actividad . "_" .  $nombreArchivo;
          if (move_uploaded_file($nombreTmpArchivo, $add)) {
              chmod($add, 0666);
              header('refresh:2');

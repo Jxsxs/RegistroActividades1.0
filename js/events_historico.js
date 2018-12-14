@@ -1,9 +1,10 @@
+var notas = 0;
 function detallesHistorico(id_actividad){
   var id = id_actividad;
   var dato = {
     "id_actividad":id
   }
-
+  
   $.ajax({
     data:dato,
     url : "../controller/control_detalles_historico.php",
@@ -22,15 +23,13 @@ function detallesHistorico(id_actividad){
       }else{
         alert("No hay datos!!");
       }
-      for (var i = 0; i <= response.cantidad_notas; i++) {
-        if ($("#fecha_notas_historico_"+i) != null) {
-            $("#fecha_notas_historico_"+i).remove();
-        }
-        if ($("#notas_historico_"+i) != null) {
-            $("#notas_historico_"+i).remove();
-        }
+      for (var i = 0; i <= notas; i++) {
+        $("#fecha_notas_historico_"+i).remove();
+        $("#notas_historico_"+i).remove();
+        //console.log("rm: " + i + " cant: " + notas);
       }
       for (var i = 0; i < response.cantidad_notas; i++) {
+        //console.log("Add: " + i+ " cant: " + response.cantidad_notas);
         $("#detalles_historico").append ('<div class="form-group" id="fecha_notas_historico_' + i + '"><span class="col-md-1 col-md-offset-2 text-center">Fecha:</span><div class="col-md-8">'+
                                       '<input  name="date_detalles" disabled width="276" value="'+ response.notas[i]["fecha_seguimiento"] +'"/>' +
                                     '</div></div>');
@@ -39,6 +38,7 @@ function detallesHistorico(id_actividad){
                                     '</div></div>');
         // console.log(response.notas[i]["fecha_seguimiento"]);
         // console.log(response.notas[i]["nota_actividad"]);
+        notas+=1;
       }
     },
     error:function(){
